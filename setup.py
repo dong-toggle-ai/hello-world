@@ -6,4 +6,8 @@ setup(
     version='0.1.0',
     description='a hello world project',
     author='dong@toggle.ai',
+    install_requires=[
+        'requests',
+        'importlib-metadata; python_version == "3.8"',
+    ],
 )
