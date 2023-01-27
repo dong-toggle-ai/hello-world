@@ -11,3 +11,8 @@ pre-commit = "3.0.0"
 pytest = "7.2.1"
 
 [tool.poetry.dependencies]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
