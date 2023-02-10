@@ -1,0 +1,16 @@
+name: Build
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  image:
+    name: Image
+    uses: toggleglobal/workflows/.github/workflows/build-python.yml@main
+    secrets: inherit
+    with:
+      dockerfile: ./docker/app/Dockerfile 
+      runs-as: service
+      python-version: '3.8.3-slim'
+      push-image: ${{github.ref_name == 'main'}}
