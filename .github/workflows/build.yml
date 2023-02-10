@@ -7,7 +7,7 @@ on:
 jobs:
   image:
     name: Image
-    uses: build-python.yml@main
+    uses: .github/workflows/build-python.yml@main
     secrets: inherit
     with:
       dockerfile: ./docker/Dockerfile
