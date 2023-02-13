@@ -1,9 +1,5 @@
 on:
   workflow_call:
-    secrets:
-      DEPLOYER_GITHUB_TOKEN:
-        required:
-          true
     inputs:
       python-version:
         description: Version of python used during testing
