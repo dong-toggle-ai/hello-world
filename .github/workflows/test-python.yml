@@ -31,6 +31,7 @@ jobs:
         if: inputs.dependency-management == 'poetry'
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
+          poetry config virtualenvs.create false
           poetry add flake8 pytest
           poetry install
       - name: Lint with flake8
