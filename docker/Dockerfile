@@ -1,5 +1,4 @@
-ARG PYTHON_VERSION
-FROM python:${PYTHON_VERSION}
+FROM python:3.9.16-slim
 LABEL maintainer="Toggle <deploy@toggle.ai>"
 
 ENV SERVICE_NAME insight-accuracy
@@ -9,7 +8,7 @@ ENV PYTHONUNBUFFERED 1
 RUN groupadd -g 10001 appuser && \
     useradd  -m -u 10001 -s /bin/bash -g appuser appuser
 
-RUN mkdir /src/app; exit 0
+RUN mkdir -p /src/app; exit 0
 COPY --chown=appuser:appuser . /src/app/
 WORKDIR /src/app
 
