@@ -6,12 +6,9 @@ on:
         required: true
         type: string
       dependency-management:
-        type: choice
         description: Do you use pip or poetry to install dependencies
-        options:
-          - pip
-          - poetry
         required: true
+        type: string
 
 jobs:
   build:
