@@ -7,30 +7,11 @@ on:
 jobs:
   build:
     name: Test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [ "3.10" ]
+    uses: ./.github/workflows/test-python.yml
+    with:
+      python-version: '3.10'
+      dependency-management: 'pip'
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          python -m pip install --upgrade pip
-          pip install flake8 pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          if [ -f pyproject.toml ]; then poetry install; fi
-      - name: Lint with flake8
-        run: |
-          flake8 .
-      - name: Test with pytest
-        run: |
-          pytest
 
   image:
     name: Image
