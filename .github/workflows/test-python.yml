@@ -13,6 +13,11 @@ on:
         description: Do you use pip or poetry to install dependencies
         required: true
         type: string
+      coverage-threshold:
+        description: Minimum percentage of code covered by tests for build to pass
+        type: number
+        required: false
+        default: 75.0
 
 jobs:
   build:
