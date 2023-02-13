@@ -46,7 +46,7 @@ jobs:
           coverage run -m pytest
       - name: Coverage
         run: |
-          total = "coverage report | grep TOTAL | grep -o '[0-9][0-9]%'"]
+          total=`coverage report | grep TOTAL | grep -o '[0-9][0-9]%'`
           total=${total::-1}
           echo "Total test coverage = $total%"
           if (( $(echo "$total ${{ inputs.coverage-threshold }}" | awk '{print ($1 < $2)}') )); then
