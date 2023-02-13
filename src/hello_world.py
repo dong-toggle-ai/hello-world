@@ -11,3 +11,6 @@ def world():
     print("world")
     logger.info("world in logger")
 
+def abc():
+    return "abc"
+
