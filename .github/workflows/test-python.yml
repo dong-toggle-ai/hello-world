@@ -22,13 +22,13 @@ jobs:
         with:
           python-version: ${{ inputs.python-version }}
       - name: Install dependencies (Pip)
-        if: inputs.dependecy-management == 'pip'
+        if: inputs.dependency-management == 'pip'
         run: |
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Install dependencies (Poetry)
-        if: inputs.dependecy-management == 'poetry'
+        if: inputs.dependency-management == 'poetry'
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry add flake8 pytest
