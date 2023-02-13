@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/test-python.yml
     with:
       python-version: '3.10'
-      dependency-management: 'pip'
+      dependency-management: 'poetry'
 
 
   image:

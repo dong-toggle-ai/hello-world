@@ -20,3 +20,14 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/pypa/sampleproject"
 "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+
+[tool.poetry]
+name = "hello"
+version = "1.0.0"
+description = "description"
+authors = ["DW <dong@toggle.ai>"]
+readme = "README.md"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "7.2.1"
+coverage= "7.0.1"
