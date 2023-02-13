@@ -1,5 +1,9 @@
 on:
   workflow_call:
+    secrets:
+      DEPLOYER_GITHUB_TOKEN:
+        required:
+          true
     inputs:
       python-version:
         description: Version of python used during testing
@@ -25,18 +29,26 @@ jobs:
         if: inputs.dependency-management == 'pip'
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 pytest
+          pip install coverage flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Install dependencies (Poetry)
         if: inputs.dependency-management == 'poetry'
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry config virtualenvs.create false
-          poetry add flake8 pytest
+          poetry add coverage flake8 pytest
           poetry install
       - name: Lint with flake8
         run: |
           flake8 .
       - name: Test with pytest
         run: |
-          pytest
+          coverage run -m pytest
+      - name: Coverage
+        run: |
+          coverage xml ~/coverage.xml
+      - name: Get Cover
+        uses: orgoro/coverage@v3
+        with:
+          coverageFile: ~/coverage.xml
+          token: ${{ secrets.DEPLOYER_GITHUB_TOKEN }}

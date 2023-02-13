@@ -13,12 +13,12 @@ jobs:
       dependency-management: 'poetry'
 
 
-  image:
-    name: Image
-    uses: ./.github/workflows/build-python.yml
-    secrets: inherit
-    with:
-      dockerfile: ./docker/Dockerfile
-      runs-as: service
-      python-version: '3.8.3-slim'
-      push-image: ${{github.ref_name == 'main'}}
+#  image:
+#    name: Image
+#    uses: ./.github/workflows/build-python.yml
+#    secrets: inherit
+#    with:
+#      dockerfile: ./docker/Dockerfile
+#      runs-as: service
+#      python-version: '3.8.3-slim'
+#      push-image: ${{github.ref_name == 'main'}}
