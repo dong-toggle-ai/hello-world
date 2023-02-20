@@ -41,7 +41,7 @@ jobs:
           curl -sSL https://install.python-poetry.org | python3 -
           poetry config virtualenvs.create false
           poetry add coverage flake8 pytest tox
-          poetry install
+#          poetry install
       - name: Lint with flake8
         run: |
           flake8 .
@@ -59,4 +59,4 @@ jobs:
 #          fi
 
       - name: Test with tox
-        run: tox
+        run: tox -e py
