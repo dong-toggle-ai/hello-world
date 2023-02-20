@@ -13,7 +13,7 @@ jobs:
     uses: ./.github/workflows/test-python.yml
     secrets: inherit
     with:
-      python-version: '3.10'
+      python-versions: "['3.9', '3.10', '3.11']"
       dependency-management: 'poetry'
       coverage-threshold: 70
 

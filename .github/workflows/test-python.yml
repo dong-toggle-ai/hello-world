@@ -1,8 +1,8 @@
 on:
   workflow_call:
     inputs:
-      python-version:
-        description: Version of python used during testing
+      python-versions:
+        description: Version of python used during testing, like "['3.9', '3.10']"
         required: true
         type: string
       dependency-management:
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.9", "3.10", "3.11"]
+        python: ${{ fromJson(inputs.python-versions) }}
 
     steps:
       - uses: actions/checkout@v3
