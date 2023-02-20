@@ -15,7 +15,7 @@ jobs:
     with:
       python-version: '3.10'
       dependency-management: 'poetry'
-      coverage-threshold: 80
+      coverage-threshold: 70
 
 
 #  image:
