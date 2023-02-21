@@ -4,3 +4,5 @@ coverage.xml
 coverage.json
 *.egg-info/
 __pycache__/
+docs/build/
+source/generated/
