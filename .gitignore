@@ -1,1 +1,6 @@
 .idea/
+.coverage
+coverage.xml
+coverage.json
+*.egg-info/
+__pycache__/
