@@ -16,6 +16,7 @@ jobs:
       python-versions: "['3.9', '3.10', '3.11']"
       dependency-management: 'poetry'
       coverage-threshold: 70
+      use_tox: 'y'
 
 
 #  image:

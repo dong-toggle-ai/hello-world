@@ -6,7 +6,11 @@ on:
         required: true
         type: string
       dependency-management:
-        description: Do you use pip or poetry to install dependencies
+        description: Do you use pip or poetry to install dependencies, choose 'pip' or 'poetry'
+        required: true
+        type: string
+      use_tox:
+        description: Do you use tox to test, choose 'y' or 'n'. if 'y', please create tox.ini in root folder
         required: true
         type: string
       coverage-threshold:
@@ -41,16 +45,16 @@ jobs:
           curl -sSL https://install.python-poetry.org | python3 -
           poetry config virtualenvs.create false
           poetry add coverage flake8 pytest tox
-#          poetry install
+          poetry install
       - name: Lint with flake8
         run: |
           flake8 .
-#      - name: Test with pytest
-#        run: |
-#          coverage run -m pytest
-
-
+      - name: Test with pytest
+        if: inputs.use_tox == 'n'
+        run: |
+          coverage run -m pytest
       - name: Test with tox
+        if: inputs.use_tox == 'y'
         run: tox -e py
 
       - name: Coverage
