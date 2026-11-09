@@ -29,4 +29,3 @@ repos:
     rev: '7.5.0'
     hooks:
     -   id: flake8
-
